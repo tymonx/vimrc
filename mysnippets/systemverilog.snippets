@@ -1,0 +1,28 @@
+snippet alffr "always_ff with clock and reset"
+always_ff @(posedge ${1:aclk} or negedge ${2:areset_n}) begin
+	if (!$2) begin
+		$4 <= '0;
+	end
+	else if (${3:tx.tready}) begin
+		${4:tx.tdata} <= ${5:rx.tdata};
+	end
+end
+endsnippet
+
+snippet alff "always_ff with clock"
+always_ff @(posedge ${1:aclk}) begin
+	if (${2:tx.tready}) begin
+		${3:tx.tdata} <= ${4:rx.tdata};
+	end
+end
+endsnippet
+
+snippet alc "always_comb block"
+always_comb begin
+	${0}
+end
+endsnippet
+
+snippet alcc "always_comb one line"
+always_comb ${1:tx.tdata} = ${2:rx.tdata};
+endsnippet
