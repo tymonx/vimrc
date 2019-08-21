@@ -114,10 +114,6 @@ let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" Syntastic "
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_systemverilog_checkers = ["verilator"]
-
 " YouCompleteMe "
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
@@ -135,6 +131,23 @@ let g:vim_markdown_folding_disabled = 1
 
 " indentLine "
 let g:indentLine_color_term = 239
+
+" ALE "
+let g:ale_linters = {
+    \'python': [
+        \'flake8',
+        \'mypy',
+        \'pyre',
+        \'pyls',
+        \'pylint',
+        \'pyflakes',
+        \'vulture',
+        \'pydocstyle',
+        \'pycodestyle',
+    \],
+\}
+
+let g:ale_python_mypy_options = "--ignore-missing-imports"
 
 " TagBar "
 let g:tagbar_type_systemverilog = {
@@ -216,14 +229,14 @@ Plugin 'junegunn/gv.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-speeddating'
 Plugin 'Tagbar'
 Plugin 'tComment'
 Plugin 'noahfrederick/vim-skeleton'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'rking/ag.vim'
-" Plugin 'vhda/verilog_systemverilog.vim'
+Plugin 'vhda/verilog_systemverilog.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
@@ -238,6 +251,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-signify'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'edkolev/promptline.vim'
+Plugin 'whatyouhide/vim-lengthmatters'
 Plugin 'tpope/vim-dispatch'
 
 call vundle#end()
